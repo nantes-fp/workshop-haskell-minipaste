@@ -16,7 +16,8 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     Paste
+  exposed-modules:     Paste,
+                       Database
   -- other-modules:
   -- other-extensions:
   build-depends:       base >=4.7 && <4.8,
