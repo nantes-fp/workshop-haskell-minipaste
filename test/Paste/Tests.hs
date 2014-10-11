@@ -6,13 +6,14 @@ import qualified Test.QuickCheck.Monadic as QCM
 import           Test.Tasty
 import           Test.Tasty.HUnit
 import qualified Test.Tasty.QuickCheck   as QC
+import Test.Tasty.QuickCheck (testProperty)
 
 import           Paste
 
 tests :: TestTree
 tests = testGroup "Paste.Tests" [
-        QC.testProperty "dummy" prop_dummy
-    ,   QC.testProperty "create" prop_create
+        testProperty "dummy" prop_dummy
+    ,   testProperty "create" prop_create
     ,   testCase "dummy unit" test_dummy
     ]
 
