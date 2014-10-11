@@ -4,6 +4,7 @@ import           Data.Functor
 import qualified Data.Text               as T
 import qualified Test.QuickCheck.Monadic as QCM
 import           Test.Tasty
+import           Test.Tasty.HUnit
 import qualified Test.Tasty.QuickCheck   as QC
 
 import           Paste
@@ -12,6 +13,7 @@ tests :: TestTree
 tests = testGroup "Paste.Tests" [
         QC.testProperty "dummy" prop_dummy
     ,   QC.testProperty "create" prop_create
+    ,   testCase "dummy unit" test_dummy
     ]
 
 prop_dummy :: String -> Bool
@@ -22,3 +24,5 @@ prop_create = QCM.monadicIO $ do
     password <- T.pack <$> QCM.pick QC.arbitrary
     user <- QCM.run $ createUser email password
     QCM.assert $ (checkUserPassword password user) == True
+
+test_dummy = True @?= False
