@@ -1,11 +1,11 @@
-{-#LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE OverloadedStrings #-}
 module Database where
 
 import           Control.Applicative
+import           Data.Maybe
+import           Data.UUID
 import           Database.PostgreSQL.Simple
 import           Database.PostgreSQL.Simple.FromRow
-import Data.Maybe
-import Data.UUID
 
 import           Paste
 
